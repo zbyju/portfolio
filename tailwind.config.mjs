@@ -24,6 +24,9 @@ export default {
           300: "#c4bcab",
         },
       },
+      boxShadow: {
+        "custom-red": "-12px -12px 0px 4px #6d0ac4",
+      },
     },
   },
   plugins: [],

@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Twitter } from "lucide-astro";
+import { Github, Linkedin } from "lucide-astro";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import { intervalToDuration, format } from "date-fns";
@@ -18,10 +18,11 @@ const work = [
     end: "Present",
     content: `<ul class="ml-8 list-disc">
     <li>Created key web applications for the <a href="https://en.wikipedia.org/wiki/Baby_hatch" class="underline">Babybox project</a> in Czechia:</li>
-      <ul class="ml-8 list-disc">
-        <li>1. Designed and implemented a comprehensive application to gather, analyze, and visualize data from over 80 babyboxes, complete with real-time notifications and managing all babybox data and documents allowing for higher efficiency of the operational and maintenance staff</li>
-        <li>2. Developed a monitoring panel tailored for hospital staff, providing real-time data and a live camera feed from a Babybox with focus on alerting to ensure safety of the babies</li>
-      </ul>
+      <ol class="ml-8 list-decimal">
+        <li>Designed and implemented a comprehensive application to gather, analyze, and visualize data from over 80 babyboxes, complete with real-time notifications and managing all babybox data and documents allowing for higher efficiency of the operational and maintenance staff</li>
+        <li>Developed a monitoring panel tailored for hospital staff, providing real-time data and a live camera feed from a Babybox with focus on alerting to ensure safety of the babies</li>
+        <li>Developed an application for tracking and managing potential donors for the project</li>
+      </ol>
 
       <li>Collaborated directly with hospital staff and network administrators to ensure seamless integration of each Babybox into the hospital's network</li>
       <li>Created and managed the company's official website, focusing on accessibility, responsiveness, SEO optimization</li>
@@ -81,6 +82,128 @@ const work = [
   },
 ];
 
+const projects = [
+  {
+    name: "My Portfolio",
+    github: "https://github.com/zbyju/portfolio",
+    content: `<ul class="ml-5 list-disc">
+      <li>Using Astro's island architecture to deliver a fast website</li>
+    </ul>`,
+    keywords: ["TypeScript", "Astro"],
+  },
+  {
+    name: "Advent of Code",
+    github: "https://github.com/zbyju/advent-of-code",
+    content: `<ul class="ml-5 list-disc">
+      <li>Trying to write performant advent of code solutions</li>
+    </ul>`,
+    keywords: ["Python", "Scala", "Go", "Rust"],
+  },
+  {
+    name: "POB",
+    github: "https://github.com/zbyju/pma-only-bot",
+    content: `<ul class="ml-5 list-disc">
+      <li>Modular Discord Bot</li>
+      <li>Reacts to incoming user messages</li>
+    </ul>`,
+    keywords: ["TypeScript", "MongoDB"],
+  },
+  {
+    name: "Quest for Nature",
+    context: "Hackathon Team Project",
+    github: "https://github.com/zbyju/dream-team-collabothon",
+    content: `<ul class="ml-5 list-disc">
+      <li>Google Hackathon winning solution for the #SustainableTomorrow
+Challenge</li>
+      <li>Application for tracking ESG score for personal use
+    </ul>`,
+    keywords: ["Next.js", "React", "PWA"],
+  },
+  {
+    name: "Redis Clone",
+    github: "https://github.com/zbyju/redis-go",
+    content: `<ul class="ml-5 list-disc">
+      <li>Implements some commands of the Redis protocol to concurrently handle incoming requests</li>
+    </ul>`,
+    keywords: ["Go"],
+  },
+  {
+    name: "HTTP Server",
+    github: "https://github.com/zbyju/http-server-go",
+    content: `<ul class="ml-5 list-disc">
+      <li>Supports concurrently handling requests and sending responses</li>
+      <li>Is able to do header compressions using Gzip</li>
+    </ul>`,
+    keywords: ["Go"],
+  },
+  {
+    name: "Git Clone",
+    github: "https://github.com/zbyju/git-go",
+    content: `<ul class="ml-5 list-disc">
+      <li>Implements Git's plumbing commands to store and read blob, tree and commit objects</li>
+    </ul>`,
+    keywords: ["Go"],
+  },
+  {
+    name: "Chesso",
+    github: "https://github.com/zbyju/chesso",
+    content: `<ul class="ml-5 list-disc">
+      <li>Implementation of the game of chess in Scala</li>
+      <li>Support creating a game and moving pieces</li>
+    </ul>`,
+    keywords: ["Scala"],
+  },
+  {
+    name: "BoxJump",
+    context: "School Project",
+    github: "https://github.com/zbyju/boxjump",
+    content: `<ul class="ml-5 list-disc">
+      <li>Jump King inspired game that challenges the player to perfectly jump through the level</li>
+      <li>It implements gravity, collisions, custom jump mechanic, different objects to interact with and more</li>
+    </ul>`,
+    keywords: ["TypeScript"],
+  },
+  {
+    name: "Timeseries Benchmark",
+    context: "School Project",
+    github: "https://github.com/zbyju/timeseries-benchmark",
+    content: `<ul class="ml-5 list-disc">
+      <li>Complex benchmark for understanding the benefits of using different timeseries databases.</li>
+      <li>The benchmark uses generated but realistic data from the IoT domain</li>
+    </ul>`,
+    keywords: ["TypeScript"],
+  },
+  {
+    name: "Angry Patterns",
+    context: "School Project",
+    github: "https://github.com/zbyju/angrypatterns",
+    content: `<ul class="ml-5 list-disc">
+      <li>Angry birds inspired game for implementing different design patterns</li>
+      <li>It supports different shooting modes, missile moving strategies, types of missiles, rewinding back in time</li>
+    </ul>`,
+    keywords: ["Scala", "ScalaFX"],
+  },
+  {
+    name: "Point Cloud Tree Classifier",
+    context: "School Team Project",
+    content: `<ul class="ml-5 list-disc">
+      <li>A model trained to classify types of trees based on their point cloud representation</li>
+    </ul>`,
+    keywords: ["Python", "SVM", "Logistic Regression"],
+  },
+  {
+    name: "Geofencing Project",
+    github: "https://github.com/zbyju/geofencing-research",
+    context: "School Team Project",
+    content: `<ul class="ml-5 list-disc">
+      <li>Set a custom geofence on the map</li>
+      <li>Track users inside the geofence</li>
+      <li>Get the user's path, time, distance and speed inside the geofence</li>
+    </ul>`,
+    keywords: ["TypeScript", "Next.js", "React", "Geolocation API"],
+  },
+];
+
 const education = [
   {
     icon: Ctu,
@@ -110,10 +233,13 @@ const education = [
       "Docker",
       "PostgreSQL",
       "MongoDB",
+      "Web technologies",
       "Cloud Computing",
+      "Mutlimedia Retrieval",
       "Object-Oriented Programming",
       "Functional Programming",
       "Data Analysis",
+      "Recommender Systems",
     ],
   },
   {
@@ -272,9 +398,8 @@ function displayDurationWord(x: number | undefined, s: string): string {
           <Button text="Experience" link="#experience" />
           <Button text="Projects" link="#projects" />
           <Button text="Education" link="#education" />
-          <a href="https://linkedin.com/zbyju"><Linkedin /></a>
+          <a href="https://www.linkedin.com/in/zbyju/"><Linkedin /></a>
           <a href="https://github.com/zbyju"><Github /></a>
-          <a href="https://twitter.com/zbyju"><Twitter /></a>
         </div>
       </div>
       <img
@@ -328,10 +453,44 @@ function displayDurationWord(x: number | undefined, s: string): string {
       }
     </div>
 
-    <div>
+    <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
+
+    <div class="w-full">
       <a id="projects"></a>
       <h2 class="font-bold text-6xl">Projects</h2>
+
+      <div class="mt-6 flex flex-row gap-4 flex-wrap">
+        {
+          projects.map((p) => (
+            <div class="warp-box w-[400px] flex flex-col bg-secondary-300  px-6 py-4 rounded-md">
+              <div class="flex flex-wrap flex-row items-center gap-x-2">
+                <h3 class="font-semibold text-3xl">{p.name}</h3>
+                {p.github && (
+                  <a href={p.github}>
+                    <Github />
+                  </a>
+                )}
+              </div>
+
+              {p.context && <em class="text-lg leading-6">{p.context}</em>}
+
+              <div class="mt-2 flex-grow" set:html={p.content} />
+
+              <div class="mt-2">
+                {p.keywords.map((keyword, index) => (
+                  <>
+                    <span>{keyword}</span>
+                    {index !== p.keywords.length - 1 && <span> · </span>}
+                  </>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
+
+    <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
 
     <div class="md:w-3/4 w-full">
       <a id="education"></a>
@@ -379,3 +538,26 @@ function displayDurationWord(x: number | undefined, s: string): string {
     </div>
   </div>
 </Layout>
+
+<script>
+  // script.js
+  const warpBoxes = document.querySelectorAll(".warp-box");
+
+  warpBoxes.forEach((warpBox) => {
+    warpBox.addEventListener("mousemove", (e) => {
+      const rect = warpBox.getBoundingClientRect();
+      const x = e.clientX - rect.left; // Get the horizontal coordinate
+      const y = e.clientY - rect.top; // Get the vertical coordinate
+
+      const offsetX = ((x - rect.width / 2) / rect.width) * 2; // Normalize to [-1, 1]
+      const offsetY = ((y - rect.height / 2) / rect.height) * 2; // Normalize to [-1, 1]
+
+      warpBox.style.transform = `perspective(500px) rotateX(${offsetY * -2}deg) rotateY(${offsetX * 2}deg)`;
+    });
+
+    warpBox.addEventListener("mouseleave", () => {
+      warpBox.style.transform =
+        "perspective(500px) rotateX(0deg) rotateY(0deg)";
+    });
+  });
+</script>
