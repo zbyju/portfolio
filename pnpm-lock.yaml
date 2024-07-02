@@ -23,6 +23,9 @@ dependencies:
   astro:
     specifier: ^4.10.2
     version: 4.11.3(typescript@5.5.2)
+  date-fns:
+    specifier: ^3.6.0
+    version: 3.6.0
   lucide-astro:
     specifier: ^0.399.0
     version: 0.399.0(astro@4.11.3)
@@ -1738,6 +1741,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: false
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: false
 
   /debug@4.3.5:
