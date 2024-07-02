@@ -1,0 +1,35 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<div
+  id="myDiv"
+  class="fixed top-0 -right-16 transform -translate-x-1/2 bg-primary-200 rounded-b-xl py-2 px-6 border border-t-0 border-secondary-800 shadow-md transition-all duration-700 ease-in-out opacity-0"
+>
+  <nav
+    class="flex flex-row justify-between items-start text-xl gap-x-6 tracking-wider"
+  >
+    <HeaderLink href="/">H<span class="text-base">ome</span></HeaderLink>
+    <HeaderLink href="/blog">B<span class="text-base">log</span></HeaderLink>
+    <HeaderLink href="/about">A<span class="text-base">bout</span></HeaderLink>
+  </nav>
+</div>
+
+<script>
+  window.addEventListener("scroll", function () {
+    var myDiv = document.getElementById("myDiv");
+    if (window.scrollY > 750) {
+      if (myDiv === null) return;
+      myDiv.classList.remove("opacity-0");
+      myDiv.classList.add("opacity-100");
+      myDiv.classList.remove("top-[-200px]");
+      myDiv.classList.add("top-[0px]");
+    } else {
+      if (myDiv === null) return;
+      myDiv.classList.remove("opacity-100");
+      myDiv.classList.add("opacity-0");
+      myDiv.classList.remove("top-[0px]");
+      myDiv.classList.add("top-[-200px]");
+    }
+  });
+</script>

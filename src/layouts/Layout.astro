@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import StickyHeader from "../components/StickyHeader.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -9,10 +10,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class="bg-primary-100 dark:bg-primary-300">
-    <main class="h-[100vh]">
-      <Header />
-      <slot />
-    </main>
+  <body class="px-3 py-4 gradient">
+    <div class="rounded-lg bg-primary-100 dark:bg-primary-300">
+      <main>
+        <header class="h-[100vh] overflow-hidden">
+          <StickyHeader />
+          <Header />
+          <slot name="hero" />
+        </header>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

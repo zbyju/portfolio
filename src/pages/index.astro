@@ -1,17 +1,381 @@
 ---
+import { Github, Linkedin, Twitter } from "lucide-astro";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { intervalToDuration, format } from "date-fns";
+import Ctu from "../components/icons/ctu.astro";
+import Tum from "../components/icons/tum.astro";
+import Aalto from "../components/icons/aalto.astro";
+import Spst from "../components/icons/spst.astro";
+
+const work = [
+  {
+    job_title: "Fullstack Developer & System Administrator",
+    company: "Náměšť nad Oslavou, MONTEL",
+    country: "Czech Republic",
+    workload: "Part Time",
+    start: new Date(2018, 4),
+    end: "Present",
+    content: `<ul class="ml-8 list-disc">
+    <li>Created key web applications for the <a href="https://en.wikipedia.org/wiki/Baby_hatch" class="underline">Babybox project</a> in Czechia:</li>
+      <ul class="ml-8 list-disc">
+        <li>1. Designed and implemented a comprehensive application to gather, analyze, and visualize data from over 80 babyboxes, complete with real-time notifications and managing all babybox data and documents allowing for higher efficiency of the operational and maintenance staff</li>
+        <li>2. Developed a monitoring panel tailored for hospital staff, providing real-time data and a live camera feed from a Babybox with focus on alerting to ensure safety of the babies</li>
+      </ul>
+
+      <li>Collaborated directly with hospital staff and network administrators to ensure seamless integration of each Babybox into the hospital's network</li>
+      <li>Created and managed the company's official website, focusing on accessibility, responsiveness, SEO optimization</li>
+      <li>Managed the company's network and server infrastructure, ensuring high uptime and availability</li>
+    `,
+    keywords: [
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Go",
+      "Python",
+      "React",
+      "Vue.js",
+      "Next.js",
+      "Astro",
+      "Docker",
+      "MongoDB",
+      "InfluxDB",
+      "RabbitMQ",
+    ],
+  },
+  {
+    job_title: "Software Engineer",
+    company: "GEM Systems",
+    country: "Prague, Czech Republic",
+    workload: "Internship",
+    start: new Date(2020, 2),
+    end: new Date(2021, 0),
+    content: `<ul class="ml-8 list-disc">
+  <li>Contributed to analysis and development processes for GEM Winch, a comprehensive data anonymization tool</li>
+  <li>Designed and implemented a JavaFX-based user interface for a filesystem anonymization application, enabling intuitive file selection and configuration of anonymization parameters</li>
+  <li>Engineered advanced anonymization functionalities for Excel files, allowing precise selection and anonymization of specific cells or ranges</li>
+</ul>`,
+    keywords: [
+      "Groovy",
+      "Java",
+      "PostgreSQL",
+      "Oracle SQL",
+      "MySQL",
+      "DB2",
+      "JavaFX",
+    ],
+  },
+  {
+    job_title: "Web Designer",
+    company: "Pedro Resina",
+    country: "Montijo, Portugal",
+    workload: "High School Internship",
+    start: new Date(2017, 8),
+    end: new Date(2017, 8),
+    content: `<ul class="ml-8 list-disc">
+<li>Focused on optimizing WordPress templates for improved responsiveness and user experience</li>
+<li>These templates were successfully deployed for client websites, resulting in positive feedback</li>
+      </ul>
+    `,
+    keywords: ["HTML", "CSS", "JavaScript", "Wordpress", "PHP"],
+  },
+];
+
+const education = [
+  {
+    icon: Ctu,
+    institution: "Czech Technical University in Prague",
+    country: "Czech Republic",
+    degree: "Master's degree",
+    program: "Computer Science - Web Engineering",
+    start: new Date(2021, 7), // August 2021
+    end: new Date(2024, 7), // August 2024
+    content: `<ul class="ml-8 list-disc">
+    <li class="font-medium">Thesis: Designed and implemented a PWA, Microservice application for remote monitoring, visualization, aggregations, notifications, and data analysis to deliver higher safety, efficiency and quality of service in maintaining the network of babyboxes across the Czech Republic (Go, TypeScript - React, Next.js, Bun, Python, MongoDB, InfluxDB, Docker, RabbitMQ, Traefik, Caddy)</li>
+<li>Web technologies: TCP, HTTP, REST, SOAP, gRPC, SOA, microservices; Cloud computing: load balancers, virtualization, containerization, orchastration; Semantic web: RDF, SPARQL, Linked Data</li>
+<li>Advanced database course: SQL evaluation and optimization, NoSQL databases (document, wide-column, key-value, XML, graph)</li>
+<li>Applied functional programming: Haskell, Elm</li>
+<li>Programming courses and software engineering: Design patterns, best practices, game development</li>
+<li>Advanced parallel and distributed programming in C++ (OpenMP, MPI), interconnection networks, combinatorial optimization - strategies for solving NP-hard problems</li>
+<li>Math: Advanced calculus, general algebra, advanced probability and statistics (hypothesis testing, information theory, Markov chains, Queueing theory)</li>
+</ul>`,
+    keywords: [
+      "C++",
+      "TypeScript",
+      "JavaScript",
+      "Scala",
+      "Python",
+      "Node.js",
+      "React",
+      "Docker",
+      "PostgreSQL",
+      "MongoDB",
+      "Cloud Computing",
+      "Object-Oriented Programming",
+      "Functional Programming",
+      "Data Analysis",
+    ],
+  },
+  {
+    icon: Tum,
+    institution: "Technical University of Munich",
+    country: "Germany",
+    degree: "EuroTeQ Student",
+    start: new Date(2024, 1),
+    end: new Date(2024, 6),
+    duration: "Feb 2024 - Jul 2024",
+    content: `<ul class="ml-8 list-disc">
+    <li>Engaged with founders, managers, and executives learning about their entrepreneurial journeys and strategies</li>
+    <li>German language and culture</li>
+</ul>`,
+    keywords: ["Entrepreneurship", "German"],
+  },
+  {
+    icon: Aalto,
+    institution: "Aalto University",
+    country: "Finland",
+    degree: "Exchange student",
+    program: "Computer Science",
+    start: new Date(2022, 7),
+    end: new Date(2023, 6),
+    duration: "2022 - 2023",
+    content: `<ul class="ml-8 list-disc">
+  <li>Artificial Intelligence, Machine Learning, and Deep Learning Courses - Team project: Made a model to classify different types of trees based on their point cloud representation</li>
+  <li>Fullstack development course, Web development course - Team project: Geofencing and tracking users' location to retrieve different metrics</li>
+  <li>Parallel Programming - Instruction-level parallelism, vector-based programming, multi-threading, SIMD</li>
+</ul>`,
+    keywords: [
+      "C++",
+      "TypeScript",
+      "Python",
+      "React",
+      "Next.js",
+      "Microservices",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Deep Learning",
+      "Statistics",
+      "Hypothesis Testing",
+    ],
+  },
+  {
+    icon: Ctu,
+    institution: "Czech Technical University in Prague",
+    country: "Czech Republic",
+    degree: "Bachelor's degree",
+    program: "Computer Science - Software Engineering",
+    start: new Date(2018, 7), // 2018
+    end: new Date(2021, 7), // 2021
+    content: `<ul class="ml-8 list-disc">
+    <li class="font-medium">Thesis: Developed a module for detecting plagiarism, including a React front-end for teachers to inspect and resolve plagiarism suspicions, and an improved plagiarism detection algorithm</li>
+  <li>Programming, advanced algorithms, and data structures in C/C++; Object-Oriented Programming in C++, Java, Scala, Groovy.</li>
+  <li>Relational databases, relational algebra and SQL (Oracle, PostgreSQL)</li>
+  <li>Functional programming in Lambda Calculus, Lisp, Scala; Logical programming in Prolog</li>
+  <li>Software Engineering, Conceptual Modeling, Process Modeling, Ontological modeling, UML, OntoUML</li>
+  <li>Math courses: calculus, linear algebra, discrete math, probability and statistics, formal languages</li>
+  <li>Hardware and programming microcontrollers, Arduino, FPGA - VHDL and Assembly</li>
+</ul>`,
+    keywords: [
+      "C",
+      "C++",
+      "Java",
+      "Scala",
+      "Groovy",
+      "SQL",
+      "Lisp",
+      "Prolog",
+      "Docker",
+      "Data Structures",
+      "Algorithms",
+      "Object-Oriented Programming",
+      "Functional Programming",
+      "Databases",
+      "Computer Networks",
+      "Software Engineering",
+      "Requirements Engineering",
+      "Calculus",
+      "Linear Algebra",
+      "Discrete Math",
+      "Probability and Statistics",
+      "Computer Hardware",
+    ],
+  },
+  {
+    icon: Spst,
+    institution: "Technical High School Třebíč",
+    country: "Czech Republic",
+    program: "Computer Systems",
+    start: new Date(2014, 7), // 2014
+    end: new Date(2018, 7), // 2018
+    content: `<ul class="ml-8 list-disc">
+    <li class="font-medium">Final Project: Developed a Content Management System allowing users to manage blog posts, track view statistics, and customize themes and styling (Node.js)</li>
+<li>Introduction to programming and algorithms, basics of object-oriented programming C++, C#</li>
+<li>Basics of web design and development (HTML, CSS, JavaScript, PHP, MySQL)</li>
+<li>Programming microcontrollers in C</li>
+<li>PCB design and manufacturing</li>
+</ul>`,
+    keywords: [
+      "C",
+      "C++",
+      "C#",
+      "JavaScript",
+      "PHP",
+      "HTML",
+      "CSS",
+      "Microcontrollers",
+    ],
+  },
+];
+
+function displayDate(d: Date | string): string {
+  if (typeof d === "string") return d;
+  return format(d, "MMMM yyyy");
+}
+
+function displayDuration(d1: Date, d2: Date | string): string {
+  if (typeof d2 === "string") d2 = new Date();
+  const duration = intervalToDuration({
+    start: d1,
+    end: d2,
+  });
+
+  const { years, months } = duration;
+  const yearsStr = displayDurationWord(years, "year");
+  const monthsStr = displayDurationWord(months, "month");
+
+  return yearsStr.length > 0 && monthsStr.length > 0
+    ? `${yearsStr} and ${monthsStr}`
+    : monthsStr.length === 0 && yearsStr.length === 0
+      ? "1 month"
+      : yearsStr.length === 0
+        ? monthsStr
+        : yearsStr;
+}
+
+function displayDurationWord(x: number | undefined, s: string): string {
+  return x === 0 || x === undefined ? "" : x === 1 ? `${x} ${s}` : `${x} ${s}s`;
+}
 ---
 
 <Layout>
-  <div class="h-full px-12">
-    <div class="flex flex-row justify-between items-center gap-6 mt-24">
+  <div class="h-full px-12" slot="hero">
+    <div class="flex flex-row justify-between items-center gap-x-48 mt-24">
       <div class="flex flex-col gap-4">
-        <span class="font-black text-6xl">Hello I'm Zbynek</span>
-        <span class="font-semibold text-2xl"
-          >Tohle je jen filler text, nevim co sem mam napsat.</span
+        <span class="font-black text-6xl"
+          ><span class="handwriting">Hello, I am Zbyněk Juřica</span></span
         >
+        <span class="font-semibold text-3xl"
+          >I'm a passionate Software Engineer who loves solving problems and
+          creating impactful products using modern web technologies.</span
+        >
+        <div class="flex flex-row flex-wrap items-center gap-4">
+          <Button text="Experience" link="#experience" />
+          <Button text="Projects" link="#projects" />
+          <Button text="Education" link="#education" />
+          <a href="https://linkedin.com/zbyju"><Linkedin /></a>
+          <a href="https://github.com/zbyju"><Github /></a>
+          <a href="https://twitter.com/zbyju"><Twitter /></a>
+        </div>
       </div>
-      <img src="portrait_placeholder.jpg" width="320" />
+      <img
+        src="portrait_placeholder.jpg"
+        class="rounded-full border-text-800 border-[12px]"
+        width="320"
+      />
+    </div>
+  </div>
+
+  <hr class="h-[2px] mx-auto rounded-xl w-1/4 mb-32 bg-black" />
+
+  <div class="px-12 pb-12 bg-white pt-32 flex flex-col gap-y-32">
+    <div class="md:w-3/4 w-full">
+      <a id="experience"></a>
+      <h2 class="font-bold text-6xl">Experience</h2>
+
+      {
+        work.map((w) => (
+          <div class="border-l-4 border-yellow-400 pl-12 ml-1 mt-12">
+            <div class="flex flex-wrap flex-row items-center gap-x-3">
+              <h3 class="font-semibold text-3xl">{w.job_title}</h3>
+              <span class="text-2xl pt-[3px]">—</span>
+              <span class="text-2xl pt-[5px]">{w.country}</span>
+            </div>
+
+            <div class="flex flex-wrap flex-row items-center gap-x-2">
+              <h4 class="text-xl font-medium leading-6">{w.company}</h4>
+              <span class="text-lg leading-6">—</span>
+              <em class="text-lg leading-6 pt-[2px]">{w.workload}</em>
+            </div>
+            <div class="text-xl font-medium">
+              <span class="leading-7">
+                {displayDate(w.start)} - {displayDate(w.end)}
+              </span>
+              <span class="leading-7">({displayDuration(w.start, w.end)})</span>
+            </div>
+
+            <div class="mt-2" set:html={w.content} />
+
+            <div class="mt-2">
+              {w.keywords.map((keyword, index) => (
+                <>
+                  <span>{keyword}</span>
+                  {index !== w.keywords.length - 1 && <span> · </span>}
+                </>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div>
+      <a id="projects"></a>
+      <h2 class="font-bold text-6xl">Projects</h2>
+    </div>
+
+    <div class="md:w-3/4 w-full">
+      <a id="education"></a>
+      <h2 class="font-bold text-6xl">Education</h2>
+
+      {
+        education.map((e) => (
+          <div class="border-l-4 border-yellow-400 pl-12 ml-1 mt-12">
+            <div class="flex flex-wrap flex-row items-center gap-x-3">
+              <span>{e.icon && <e.icon width="32px" />}</span>
+              <h3 class="font-semibold text-3xl">{e.institution}</h3>
+              <span class="text-2xl pt-[3px]">—</span>
+              <span class="text-2xl pt-[5px]">{e.country}</span>
+            </div>
+
+            <div class="flex flex-wrap flex-row items-center gap-x-2">
+              {e.program && (
+                <h4 class="text-xl font-medium leading-6">{e.program}</h4>
+              )}
+              {e.program && e.degree && (
+                <span class="text-lg leading-6">—</span>
+              )}
+              <em class="text-lg leading-6 pt-[2px]">{e.degree}</em>
+            </div>
+            <div class="text-xl font-medium">
+              <span class="leading-7">
+                {displayDate(e.start)} - {displayDate(e.end)}
+              </span>
+              <span class="leading-7">({displayDuration(e.start, e.end)})</span>
+            </div>
+
+            {/* <div class="mt-2" set:html={e.content} /> */}
+
+            <div class="mt-2">
+              {e.keywords.map((keyword, index) => (
+                <>
+                  <span>{keyword}</span>
+                  {index !== e.keywords.length - 1 && <span> · </span>}
+                </>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </Layout>
