@@ -2,22 +2,26 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Tag from "../components/Tag.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+    Astro.props;
 console.log(pubDate, updatedDate, heroImage);
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
 
-  <body>
-    <Header />
-    <main>
-      <article>hello</article>
-    </main>
-  </body>
+    <body>
+        <Header />
+        <main class="blog w-full lg:w-[50%] mx-auto pb-12">
+            <article><slot /></article>
+            <em>Tags:</em>
+            {tags ? tags.map((t) => <Tag text={t} />) : "No tags"}
+        </main>
+    </body>
 </html>
