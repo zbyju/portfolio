@@ -1,0 +1,21 @@
+---
+import type { Skills } from "../content/cv/skills";
+interface Props {
+    skills: Skills;
+}
+
+const { skills } = Astro.props;
+
+const headingClass = "text-xl font-medium inline";
+---
+
+<div class="flex flex-row flex-wrap gap-4">
+    <h3 class={headingClass}>Programming Languages</h3>
+    {
+        skills.programmingLanguages.map((s) => (
+            <div class="px-2 rounded-full py-1 bg-blue-300 border-blue-400">
+                {s.name}
+            </div>
+        ))
+    }
+</div>

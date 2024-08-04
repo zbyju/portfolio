@@ -1,0 +1,58 @@
+---
+import { displayDate, displayDuration } from "../utils/display/dates";
+type Work = {
+    job_title: string;
+    country: string;
+    company: string;
+    workload: string;
+    start: Date;
+    end: Date | string;
+    content: string;
+    keywords: string[];
+};
+interface Props {
+    works: Work[];
+}
+const { works } = Astro.props;
+---
+
+<div>
+    {
+        works.map((w) => (
+            <div class="border-l-4 border-yellow-400 pl-12 ml-1 mt-12">
+                <div class="flex flex-wrap flex-row items-center gap-x-3">
+                    <h3 class="font-semibold text-3xl">{w.job_title}</h3>
+                    <span class="text-2xl pt-[3px]">—</span>
+                    <span class="text-2xl pt-[5px]">{w.country}</span>
+                </div>
+
+                <div class="flex flex-wrap flex-row items-center gap-x-2">
+                    <h4 class="text-xl font-medium leading-6">{w.company}</h4>
+                    <span class="text-lg leading-6">—</span>
+                    <em class="text-lg leading-6 pt-[2px]">{w.workload}</em>
+                </div>
+                <div class="text-xl font-medium">
+                    <span class="leading-7">
+                        {displayDate(w.start)} - {displayDate(w.end)}
+                    </span>
+                    <span class="leading-7">
+                        ({displayDuration(w.start, w.end)})
+                    </span>
+                </div>
+
+                <div class="mt-2" set:html={w.content} />
+
+                <div class="mt-2">
+                    {w.keywords.map((keyword, index) => (
+                        <>
+                            <span>{keyword}</span>
+                            {index !== w.keywords.length - 1 && (
+                                <span> · </span>
+                            )}
+                        </>
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</div>
