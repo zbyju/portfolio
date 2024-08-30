@@ -1,6 +1,58 @@
 /** @type {import('tailwindcss').Config} */
+
+const generateTailwindColorCombinations = (colors) => {
+  const shades = [
+    "50",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+  ];
+  const variants = ["bg", "text", "border"];
+  const modifiers = ["", "hover:", "dark:"];
+  const dirs = ["", "-t", "-b", "-r", "-l"];
+
+  const combinations = [];
+
+  colors.forEach((color) => {
+    shades.forEach((shade) => {
+      variants.forEach((variant) => {
+        modifiers.forEach((modifier) => {
+          dirs.forEach((dir) => {
+            combinations.push(`${modifier}${variant}${dir}-${color}-${shade}`);
+          });
+        });
+      });
+    });
+  });
+
+  console.log(combinations);
+
+  return combinations;
+};
+
 export default {
   darkMode: "selector",
+  safelist: generateTailwindColorCombinations([
+    "blue",
+    "green",
+    "pink",
+    "yellow",
+    "amber",
+    "red",
+    "purple",
+    "orange",
+    "zinc",
+    "teal",
+    "indigo",
+    "lime",
+    "cyan",
+  ]),
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
