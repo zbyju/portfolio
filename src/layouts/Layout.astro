@@ -10,15 +10,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class="px-3 py-4 gradient">
-    <div class="rounded-lg bg-primary-100 dark:bg-primary-300">
+  <body class="px-3 py-4 gradient bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50">
+    <div class="rounded-lg">
       <main>
-        <header class="h-[100vh] overflow-hidden">
+        <header class="h-[100vh] overflow-hidden bg-primary-100 dark:bg-zinc-900">
           <StickyHeader />
           <Header />
           <slot name="hero" />
         </header>
-        <slot />
+        <div class="bg-primary-100 dark:bg-zinc-900">
+          <hr class="h-[2px] mx-auto rounded-xl w-1/4 mb-32 bg-black" />
+          <div class="h-28"></div>
+        </div>
+        <div class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50">
+          <slot />
+        </div>
       </main>
     </div>
   </body>

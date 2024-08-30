@@ -13,75 +13,66 @@ import { skills } from "../content/cv/skills";
 ---
 
 <Layout>
-    <div class="h-full px-12" slot="hero">
-        <div class="flex flex-row justify-between items-center gap-x-48 mt-24">
-            <div class="flex flex-col gap-4">
-                <span class="font-black text-6xl"
-                    ><span class="handwriting">Hello, I am Zbyněk Juřica</span
-                    ></span
-                >
-                <span class="font-semibold text-3xl"
-                    >I'm a passionate Software Engineer who loves solving
-                    problems and creating impactful products using modern web
-                    technologies.</span
-                >
-                <div class="flex flex-row flex-wrap items-center gap-4">
-                    <Button text="Experience" link="#experience" />
-                    <Button text="Projects" link="#projects" />
-                    <Button text="Education" link="#education" />
-                    <a href="https://www.linkedin.com/in/zbyju/"><Linkedin /></a
-                    >
-                    <a href="https://github.com/zbyju"><Github /></a>
-                </div>
-            </div>
-            <img
-                src="portrait_placeholder.jpg"
-                class="rounded-full border-text-800 border-[12px]"
-                width="320"
-            />
+  <div class="h-full px-12" slot="hero">
+    <div class="flex flex-row justify-between items-center gap-x-48 mt-24">
+      <div class="flex flex-col gap-4 max-w-[800px]">
+        <span class="font-black text-6xl"
+          ><span class="handwriting">Hello, I am Zbyněk Juřica</span></span
+        >
+        <span class="font-semibold text-3xl"
+          >I'm a passionate Software Engineer who loves solving problems and
+          creating impactful products using modern web technologies.</span
+        >
+        <div class="flex flex-row flex-wrap items-center gap-4">
+          <Button text="Experience" link="#experience" />
+          <Button text="Projects" link="#projects" />
+          <Button text="Education" link="#education" />
+          <a href="https://www.linkedin.com/in/zbyju/"><Linkedin /></a>
+          <a href="https://github.com/zbyju"><Github /></a>
         </div>
+      </div>
+      <img
+        src="portrait_placeholder.jpg"
+        class="rounded-full border-text-800 border-[12px]"
+        width="320"
+      />
+    </div>
+  </div>
+
+  <div class="px-12 pb-12 pt-32 flex flex-col gap-y-32">
+    <div class="w-full">
+      <a id="projects"></a>
+      <h2 class="font-bold text-6xl">Projects</h2>
+
+      <Projects projects={projects} />
     </div>
 
-    <hr class="h-[2px] mx-auto rounded-xl w-1/4 mb-32 bg-black" />
+    <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
 
-    <div></div>
+    <div class="w-full">
+      <a id="projects"></a>
+      <h2 class="font-bold text-6xl">Skills & Technologies</h2>
 
-    <div class="px-12 pb-12 bg-white pt-32 flex flex-col gap-y-32">
-        <div class="w-full">
-            <a id="projects"></a>
-            <h2 class="font-bold text-6xl">Projects</h2>
-
-            <div class="mt-6 flex flex-row gap-4 flex-wrap">
-                <Projects projects={projects} />
-            </div>
-        </div>
-
-        <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
-
-        <div class="w-full">
-            <a id="projects"></a>
-            <h2 class="font-bold text-6xl">Technologies</h2>
-
-            <div class="mt-6 flex flex-row gap-4 flex-wrap">
-                <Skills skills={skills} />
-            </div>
-        </div>
-
-        <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
-
-        <div class="md:w-3/4 w-full">
-            <a id="experience"></a>
-            <h2 class="font-bold text-6xl">Experience</h2>
-            <Works works={work} />
-        </div>
-
-        <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
-
-        <div class="md:w-3/4 w-full">
-            <a id="education"></a>
-            <h2 class="font-bold text-6xl">Education</h2>
-
-            <Educations educations={education} />
-        </div>
+      <div class="mt-6 flex flex-row gap-4 flex-wrap">
+        <Skills skills={skills} />
+      </div>
     </div>
+
+    <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
+
+    <div class="md:w-3/4 w-full">
+      <a id="experience"></a>
+      <h2 class="font-bold text-6xl">Experience</h2>
+      <Works works={work} />
+    </div>
+
+    <hr class="h-[2px] mx-auto rounded-xl w-1/4 bg-black" />
+
+    <div class="md:w-3/4 w-full">
+      <a id="education"></a>
+      <h2 class="font-bold text-6xl">Education</h2>
+
+      <Educations educations={education} />
+    </div>
+  </div>
 </Layout>
