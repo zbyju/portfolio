@@ -1,21 +1,18 @@
 ---
 import type { Skills } from "../content/cv/skills";
+import SkillList from "./SkillList.astro";
 interface Props {
     skills: Skills;
 }
 
 const { skills } = Astro.props;
 
-const headingClass = "text-xl font-medium inline";
 ---
 
-<div class="flex flex-row flex-wrap gap-4">
-    <h3 class={headingClass}>Programming Languages</h3>
-    {
-        skills.programmingLanguages.map((s) => (
-            <div class="px-2 rounded-full py-1 bg-blue-300 border-blue-400">
-                {s.name}
-            </div>
-        ))
-    }
+<div class="flex flex-col gap-4">
+  <SkillList skills={skills.programmingLanguages} heading="Programming Languages" color="indigo" />
+  <SkillList skills={skills.frameworks} heading="Frameworks" color="blue" />
+  <SkillList skills={skills.databases} heading="Databases" color="cyan" />
+  <SkillList skills={skills.others} heading="Miscellaneous" color="teal" />
+  <SkillList skills={skills.languages} heading="Languages" color="red" />
 </div>

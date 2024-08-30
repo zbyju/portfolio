@@ -1,0 +1,25 @@
+---
+import type { SkillInfo } from "../content/cv/skills";
+import PillWithProgress from "./PillWithProgress.astro";
+
+interface Props {
+  skills: SkillInfo[];
+  heading: string;
+  color: string;
+}
+
+const { skills, heading, color } = Astro.props;
+---
+
+<div class="flex flex-row flex-wrap gap-4">
+  <h3 class="text-xl font-medium inline">{heading}</h3>
+  {
+    skills
+      .sort((a, b) => b.skill - a.skill)
+      .map((s) => (
+        <div>
+          <PillWithProgress progress={s.skill} text={s.name} color={color} />
+        </div>
+      ))
+  }
+</div>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  text: string;
+  progress: number;
+  color: string;
+}
+
+const { text, progress, color } = Astro.props;
+
+const commonClass = "border-collapse px-[6px] rounded-lg";
+---
+
+<div
+  class={`${commonClass} border border-zinc-300 ${progress >= 5 ? "bg-yellow-500" : `bg-${color}-100`}`}
+>
+  <div
+    class={`${commonClass} ${progress >= 4 ? `bg-${color}-600` : "bg-transparent"}`}
+  >
+    <div
+      class={`${commonClass} ${progress >= 3 ? `bg-${color}-700` : "bg-transparent"}`}
+    >
+      <div
+        class={`${commonClass} ${progress >= 2 ? `bg-${color}-800` : "bg-transparent"}`}
+      >
+        <div
+          class={`${commonClass} ${progress >= 1 ? `bg-${color}-900` : "bg-transparent"}`}
+        >
+          <span class="text-white inline-block py-[4px]">{text}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
