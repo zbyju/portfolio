@@ -1,38 +1,39 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <div
-    id="sticky-header"
-    class="fixed z-50 top-0 -right-16 transform -translate-x-1/2 bg-primary-200 rounded-b-xl py-2 px-6 border border-t-0 border-secondary-800 shadow-md transition-all duration-700 ease-in-out opacity-0"
+  id="sticky-header"
+  class="text-black fixed z-50 top-0 -right-16 transform -translate-x-1/2 bg-primary-200 rounded-b-xl py-2 px-6 border border-t-0 border-secondary-800 shadow-md transition-all duration-700 ease-in-out opacity-0"
 >
-    <nav
-        class="flex flex-row justify-between items-start text-xl gap-x-6 tracking-wider"
-    >
-        <HeaderLink href="/">H<span class="text-base">ome</span></HeaderLink>
-        <HeaderLink href="/blog">B<span class="text-base">log</span></HeaderLink
-        >
-        <HeaderLink href="/about"
-            >A<span class="text-base">bout</span></HeaderLink
-        >
-    </nav>
+  <nav
+    class="flex flex-row justify-between items-start text-xl gap-x-6 tracking-wider"
+  >
+    <HeaderLink href="/">H<span class="text-base">ome</span></HeaderLink>
+    <HeaderLink href="/blog">B<span class="text-base">log</span></HeaderLink>
+    <HeaderLink href="/about">A<span class="text-base">bout</span></HeaderLink>
+    <span class="mt-1">
+      <ThemeIcon />
+    </span>
+  </nav>
 </div>
 
 <script>
-    window.addEventListener("scroll", function () {
-        var header = document.getElementById("sticky-header");
-        if (window.scrollY > 750) {
-            if (header === null) return;
-            header.classList.remove("opacity-0");
-            header.classList.add("opacity-100");
-            header.classList.remove("top-[-200px]");
-            header.classList.add("top-[0px]");
-        } else {
-            if (header === null) return;
-            header.classList.remove("opacity-100");
-            header.classList.add("opacity-0");
-            header.classList.remove("top-[0px]");
-            header.classList.add("top-[-200px]");
-        }
-    });
+  window.addEventListener("scroll", function () {
+    var header = document.getElementById("sticky-header");
+    if (window.scrollY > 750) {
+      if (header === null) return;
+      header.classList.remove("opacity-0");
+      header.classList.add("opacity-100");
+      header.classList.remove("top-[-200px]");
+      header.classList.add("top-[0px]");
+    } else {
+      if (header === null) return;
+      header.classList.remove("opacity-100");
+      header.classList.add("opacity-0");
+      header.classList.remove("top-[0px]");
+      header.classList.add("top-[-200px]");
+    }
+  });
 </script>
