@@ -26,7 +26,7 @@ const color = (size: "big" | "medium" | "small") => {
 };
 ---
 
-<div class="flex flex-wrap flex-row gap-4">
+<div class="masonry-grid" data-masonry='{ "itemSelector": ".masonry-item" }'>
     {
         projects
             .sort((a, b) => {
@@ -40,7 +40,7 @@ const color = (size: "big" | "medium" | "small") => {
             .filter((p) => p.show)
             .map((p) => (
                 <div
-                    class={`warp-box w-[400px] flex flex-col border-l-[4px] px-6 py-4 transition duration-300 ${color(p.size)}`}
+                    class={`warp-box w-[400px] m-2 masonry-item border-l-[3px] px-6 py-4 transition duration-300 ${color(p.size)}`}
                 >
                     <div class="flex flex-wrap flex-row items-center gap-x-2">
                         <h3 class="font-semibold text-3xl">{p.name}</h3>
@@ -73,6 +73,7 @@ const color = (size: "big" | "medium" | "small") => {
 </div>
 
 <script>
+    import Masonry from "masonry-layout"
     // script.js
     const warpBoxes = document.querySelectorAll<HTMLElement>(".warp-box");
     warpBoxes.forEach((warpBox) => {
