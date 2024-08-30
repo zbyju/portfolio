@@ -16,41 +16,45 @@ interface Props {
 const { works } = Astro.props;
 ---
 
-<div>
+<div class="mt-4">
     {
         works.map((w) => (
-            <div class="border-l-4 border-yellow-400 pl-12 ml-1 mt-12">
-                <div class="flex flex-wrap flex-row items-center gap-x-3">
-                    <h3 class="font-semibold text-3xl">{w.job_title}</h3>
-                    <span class="text-2xl pt-[3px]">—</span>
-                    <span class="text-2xl pt-[5px]">{w.country}</span>
+            <div>
+                <div class="w-[300px] flex flex-row">
+                    <div class="flex flex-col gap-y-1 bg-zinc-900 dark:bg-zinc-50 h-[35px] hover:h-[57px] transition-all duration-300 text-zinc-50 dark:text-black overflow-y-hidden inline-block w-fit px-4 py-[6px] rounded-full text-center">
+                        <span class="text-sm">
+                          {displayDate(w.start)} - {displayDate(w.end)}
+                        </span>
+                        <span class="text-xs">
+                            ({displayDuration(w.start, w.end)})
+                        </span>
+                    </div>
                 </div>
+                <div class="pl-10 ml-5 py-8 border-l-[5px] border-yellow-400 dark:border-yellow-500">
+                    <div class="flex flex-wrap flex-row items-center gap-x-3">
+                        <h3 class="font-semibold text-3xl">{w.job_title}</h3>
+                        <span class="text-2xl pt-[3px]">—</span>
+                        <span class="text-2xl pt-[5px]">{w.country}</span>
+                    </div>
 
-                <div class="flex flex-wrap flex-row items-center gap-x-2">
-                    <h4 class="text-xl font-medium leading-6">{w.company}</h4>
-                    <span class="text-lg leading-6">—</span>
-                    <em class="text-lg leading-6 pt-[2px]">{w.workload}</em>
-                </div>
-                <div class="text-xl font-medium">
-                    <span class="leading-7">
-                        {displayDate(w.start)} - {displayDate(w.end)}
-                    </span>
-                    <span class="leading-7">
-                        ({displayDuration(w.start, w.end)})
-                    </span>
-                </div>
+                    <div class="flex flex-wrap flex-row items-center gap-x-2">
+                        <h4 class="text-xl font-medium leading-6">{w.company}</h4>
+                        <span class="text-lg leading-6">—</span>
+                        <em class="text-lg leading-6 pt-[2px]">{w.workload}</em>
+                    </div>
 
-                <div class="mt-2" set:html={w.content} />
+                    <div class="mt-2" set:html={w.content} />
 
-                <div class="mt-2">
-                    {w.keywords.map((keyword, index) => (
-                        <>
-                            <span>{keyword}</span>
-                            {index !== w.keywords.length - 1 && (
-                                <span> · </span>
-                            )}
-                        </>
-                    ))}
+                    <div class="mt-2">
+                        {w.keywords.map((keyword, index) => (
+                            <>
+                                <span>{keyword}</span>
+                                {index !== w.keywords.length - 1 && (
+                                    <span> · </span>
+                                )}
+                            </>
+                        ))}
+                    </div>
                 </div>
             </div>
         ))
