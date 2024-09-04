@@ -1,4 +1,6 @@
 ---
+import { Circle } from "lucide-astro";
+
 interface Props {
   text: string;
   progress: number;
@@ -6,28 +8,32 @@ interface Props {
 }
 
 const { text, progress, color } = Astro.props;
-
-const commonClass = "border-collapse px-[6px] rounded-lg";
 ---
 
 <div
-  class={`${commonClass} border border-zinc-300 ${progress >= 5 ? "bg-yellow-500" : `bg-${color}-100`}`}
+  class={`px-4 rounded-full flex flex-col gap-[3px] pt-[6px] pb-[8px] bg-${color}-900 text-${color}-50`}
 >
-  <div
-    class={`${commonClass} ${progress >= 4 ? `bg-${color}-600` : "bg-transparent"}`}
+  <span class="text-center inline-block py-[4px] leading-3 line-clamp-1"
+    >{text}</span
+  >
+  <!-- <div
+    class="w-full bg-zinc-900 h-[5px] rounded-full flex items-center px-[1px]"
   >
     <div
-      class={`${commonClass} ${progress >= 3 ? `bg-${color}-700` : "bg-transparent"}`}
+      class={`bg-${color}-400 h-full my-auto rounded-full border border-collapse border-zinc-900`}
+      style={`width: ${width}%`}
     >
-      <div
-        class={`${commonClass} ${progress >= 2 ? `bg-${color}-800` : "bg-transparent"}`}
-      >
-        <div
-          class={`${commonClass} ${progress >= 1 ? `bg-${color}-900` : "bg-transparent"}`}
-        >
-          <span class="text-white inline-block py-[4px]">{text}</span>
-        </div>
-      </div>
     </div>
+  </div> -->
+  <div class="flex flex-row gap-[4px] mx-auto">
+    {
+      Array(5)
+        .fill(0)
+        .map((_, i) => (
+          <Circle
+            class={`w-[6px] h-[6px] rounded-full border border-${color}-900 ${progress > i ? `fill-${color}-200 text-${color}-200` : `fill-zinc-900 text-zinc-900`}`}
+          />
+        ))
+    }
   </div>
 </div>

@@ -1,0 +1,31 @@
+---
+import Separator from "./Separator.astro";
+
+interface Props {
+  bg?: string;
+  separatorBottom?: boolean;
+  separatorTop?: boolean;
+}
+
+const { bg, separatorBottom = true, separatorTop = false } = Astro.props;
+---
+
+<div class={`px-2 md:px-12 py-24 ${bg}`}>
+  <div class="w-full mx-auto">
+    {
+      separatorTop && (
+        <div class="pt-24">
+          <Separator />
+        </div>
+      )
+    }
+    <slot />
+    {
+      separatorBottom && (
+        <div class="pt-24">
+          <Separator />
+        </div>
+      )
+    }
+  </div>
+</div>

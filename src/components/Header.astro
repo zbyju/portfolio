@@ -5,9 +5,9 @@ import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-  <nav class="flex flex-row justify-between py-16 px-12">
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="flex flex-row gap-10">
+  <nav class="flex flex-row justify-between py-8 md:py-16 px-6 md:px-12">
+    <h2 class="hidden md:inline"><a href="/">{SITE_TITLE}</a></h2>
+    <div class="flex flex-row gap-4 md:gap-10 justify-between w-full md:w-min">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>

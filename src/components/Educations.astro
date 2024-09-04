@@ -19,43 +19,47 @@ interface Props {
 const { educations } = Astro.props;
 ---
 
-<div class="mt-4">
+<div class="mt-4 overflow-hidden">
   {
     educations.map((e) => (
       <div>
-        <div class="w-[300px] flex flex-row">
-          <div class="flex flex-col gap-y-1 bg-zinc-900 dark:bg-zinc-50 h-[35px] hover:h-[57px] transition-all duration-300 text-white dark:text-black overflow-y-hidden w-fit px-4 py-[6px] rounded-full text-center">
+        <div class="w-[300px] max-w-[95%] flex flex-row">
+          <div class="flex flex-col gap-y-1 bg-zinc-900 dark:bg-stone-300 h-[35px] hover:h-[57px] transition-all duration-300 text-white dark:text-black overflow-y-hidden w-fit px-4 py-[6px] rounded-full text-center">
             <span class="text-sm">
               {displayDate(e.start)} - {displayDate(e.end)}
             </span>
             <span class="text-xs">({displayDuration(e.start, e.end)})</span>
           </div>
         </div>
-        <div class="pl-10 ml-5 py-8 border-l-[5px] border-yellow-400 dark:border-yellow-500">
-          <div class="flex flex-wrap flex-row items-center gap-x-3">
-            <span>{e.icon && <e.icon width="32px" />}</span>
-            <h3 class="font-semibold text-3xl">{e.institution}</h3>
-            <span class="text-2xl pt-[3px]">—</span>
-            <span class="text-2xl pt-[5px]">{e.country}</span>
-          </div>
+        <div class="pl-4 md:pl-1">
+          <div class="pl-4 box-border md:pl-10 md:ml-5 py-8 border-l-[5px] border-yellow-400 dark:border-yellow-500 w-full max-w-full lg:w-3/5">
+            <div class="flex flex-wrap flex-row items-center gap-x-3">
+              <span>{e.icon && <e.icon width="32px" />}</span>
+              <h3 class="font-semibold text-3xl">{e.institution}</h3>
+              <span class="text-2xl pt-[3px] md:inline hidden">—</span>
+              <span class="text-2xl pt-[5px]">{e.country}</span>
+            </div>
 
-          <div class="flex flex-wrap flex-row items-center gap-x-2">
-            {e.program && (
-              <h4 class="text-xl font-medium leading-6">{e.program}</h4>
-            )}
-            {e.program && e.degree && <span class="text-lg leading-6">—</span>}
-            <em class="text-lg leading-6 pt-[2px]">{e.degree}</em>
-          </div>
+            <div class="flex flex-wrap flex-row items-center gap-x-2">
+              {e.program && (
+                <h4 class="text-xl font-medium leading-6">{e.program}</h4>
+              )}
+              {e.program && e.degree && (
+                <span class="text-lg leading-6 md:inline hidden">—</span>
+              )}
+              <em class="text-lg leading-6 pt-[2px]">{e.degree}</em>
+            </div>
 
-          {/* <div class="mt-2" set:html={e.content} /> */}
+            {/* <div class="mt-2" set:html={e.content} /> */}
 
-          <div class="mt-2">
-            {e.keywords.map((keyword, index) => (
-              <>
-                <span>{keyword}</span>
-                {index !== e.keywords.length - 1 && <span> · </span>}
-              </>
-            ))}
+            <div class="mt-2">
+              {e.keywords.map((keyword, index) => (
+                <>
+                  <span>{keyword}</span>
+                  {index !== e.keywords.length - 1 && <span> · </span>}
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </div>
