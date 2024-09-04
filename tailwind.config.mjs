@@ -13,7 +13,7 @@ const generateTailwindColorCombinations = (colors) => {
     "800",
     "900",
   ];
-  const variants = ["bg", "text", "border"];
+  const variants = ["bg", "text", "border", "fill"];
   const modifiers = ["", "hover:", "dark:"];
   const dirs = ["", "-t", "-b", "-r", "-l"];
 
@@ -30,8 +30,6 @@ const generateTailwindColorCombinations = (colors) => {
       });
     });
   });
-
-  console.log(combinations);
 
   return combinations;
 };
@@ -57,6 +55,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        stone: {
+          920: "#141210",
+        },
         accent: {
           100: "#FF7F50",
           200: "#dd6236",
