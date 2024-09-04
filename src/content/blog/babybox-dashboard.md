@@ -1,16 +1,58 @@
 ---
-title: 'Building Babybox Dashboard'
-description: 'Lorem ipsum dolor sit amet'
+title: 'Babybox Dashboard Project'
+description: 'The description of what the babybox dashboard project is and what the application can do.'
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-3.jpg'
+tags: ["Project"]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+# Babybox Dashboard, what is it?
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+The Babybox Dashboard is an application for internal purposes to make managing and maintaining babyboxes easier for the staff. Its main focus is collecting various forms of data from and about babyboxes, processing them and providing them to the staff to improve their efficiency and make their work easier.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+I started developing this application as part of my master's thesis as a rewrite of the old version and then continued working on it further. Currently the application supports:
+- Collecting temperatures, voltages and events from babyboxes
+  - Displaying them in a comprehensive chart with annotations
+  - Aggregating them into quick statistics for overview
+- Issue and maintenance tracking
+  - Creating issues to keep track of, commenting on them and assigning them for resolution
+  - Creating and keeping track of maintenances and issues that need to be resolved
+- Custom notification system
+  - Create custom notification templates that automatically generate and send notifications
+  - Notifications are also sent for issues and maintenances
+- Babybox metadata tracking
+  - Tracking and displaying information such as address, coordinates, network configuration, hospital staff contact information
+- Battery analysis
+  - Trying to predict battery quality based on voltage drop-off
+- User management
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+## Data Collection and Visualisation
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+Babyboxes send their data snapshots every 5 minutes and events whenever they occur and stores them for further use. The staff can see the latest snapshots and events to get the idea of the current situation.
+
+They can then further explore the data and get an in-depth understanding in a comprehensive chart with statistics for the time window they selected. The selected filters are stored as part of the URL to allow easy sharing of information between team members and quick cycling through babyboxes with the same parameters.
+
+## Issue and Maintenance Tracking
+
+The staff can use Babybox Dashboard to quickly create issues to track them for future fixing or for statistics. Each issue can be assigned to a staff member; additionally issues can be assigned to a maintenance to track what needs to be done on the next maintenance of that babybox.
+
+Emphasis was put on ease and efficiency of use with many quality of life features to quickly create and edit issues and filter them. Staff members can collaborate or take notes for themselves on the issues using comments.
+
+
+Maintenances are created and can be planned for any babybox, they are used for tracking when the next maintenance needs to be done and what issues need to be resolved. Similarly to issues, they can also be assigned to a staff member.
+
+Assigned issues and maintenances appear on the user's profile; any change made to them generates an automatic notification.
+
+## Notification System
+
+Users can create custom notification templates to specify the conditions when they want to receive notifications. Users choose the variable (any temperature or voltage value) and a comparison, when the condition is met, the notification is generated.
+
+Each generated notification is displayed in the application and sent to the specified email addresses.
+
+## Babybox Metadata
+
+
+
+## Battery Analysis
+
+## User Management

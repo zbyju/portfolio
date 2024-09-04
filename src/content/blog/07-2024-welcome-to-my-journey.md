@@ -9,7 +9,7 @@ tags:
 
 # Welcome to my Journey
 
-Hello and welcome to my personal corner of the internet! As I write this, I'm on a train on my way to Slovenia. But more on that later. First, allow me to introduce myself and share a bit about what you can expect from this blog.
+Hello and welcome to my personal corner of the internet! As I write this, I'm on a train on my way to Slovenia. First, allow me to introduce myself and share a bit about what you can expect from this blog.
 
 My name is Zbyněk Juřica, and I am a software engineer with a deep passion for web technologies. I thrive on the thrill of solving complex problems and the satisfaction that comes with creating elegant, efficient solutions. Throughout my career, I've had the privilege of working on a few projects, each presenting unique challenges and learning opportunities. This blog is a new adventure for me, one where I can document my journey, reflect on my experiences, and dive deeper into the topics that fascinate me.
 
