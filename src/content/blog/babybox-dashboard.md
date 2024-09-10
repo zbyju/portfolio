@@ -8,70 +8,80 @@ tags: ["Project"]
 
 # Babybox Dashboard, what is it?
 
-The Babybox Dashboard is an application for internal purposes to make managing and maintaining babyboxes easier for the staff. Its main focus is collecting various forms of data from and about babyboxes, processing them and providing them to the staff to improve their efficiency and make their work easier.
+The Babybox Dashboard is a web-based tool built for the operational and maintenance staff responsible for babyboxes. It streamlines the process of monitoring, managing, and maintaining these units, making day-to-day tasks easier by collecting and displaying key data.
 
-I started developing this application as part of my master's thesis as a rewrite of the old version and then continued working on it further. Currently the application supports:
-- Collecting temperatures, voltages and events from babyboxes
-  - Displaying them in a comprehensive chart with annotations
-  - Aggregating them into quick statistics for overview
-- Issue and maintenance tracking
-  - Creating issues to keep track of, commenting on them and assigning them for resolution
-  - Creating and keeping track of maintenances and issues that need to be resolved
-- Custom notification system
-  - Create custom notification templates that automatically generate and send notifications
-  - Notifications are also sent for issues and maintenances
-- Babybox metadata tracking
-  - Tracking and displaying information such as address, coordinates, network configuration, hospital staff contact information
-- Battery analysis
-  - Trying to predict battery quality based on voltage drop-off
-- User management
+I originally started working on this project as part of my master’s thesis, rewriting an older version of the system. Since then, I've continued to develop it, turning it into something more powerful and user-friendly. It’s a Progressive Web Application (PWA), so it works like a native app on your phone while still being accessible through the web.
 
-## Data Collection and Visualisation
+Here's a breakdown of what it can do:
 
-Babyboxes send their data snapshots every 5 minutes and events whenever they occur and stores them for further use. The staff can see the latest snapshots and events to get the idea of the current situation.
-
-*I also made a Babybox Monitoring Application that is deployed in hospitals for the hospital staff to monitor the babybox on-site.*
+- Collects real-time data like temperatures, voltages, and events from babyboxes
+  - Displays this data in detailed charts, complete with annotations for better clarity
+  - Rolls it up into quick stats for a high-level view
+- Tracks issues and maintenance
+  - Logs issues, assigns them for resolution, and tracks them through to completion
+  - Manages maintenance schedules and connects them to relevant issues
+- Sends custom notifications
+  - Staff can create templates for automatic notifications based on specific conditions
+  - Keeps the team informed when new issues arise or maintenance is scheduled
+- Keeps track of metadata
+  - Displays babybox details like location, network configuration, and hospital contacts
+- Analyzes battery performance
+  - Predicts battery health based on voltage drop-off trends
+- Manages users
 
 ## Data Collection and Visualization
+The system collects babybox data every five minutes, plus any events that happen in real time. This data gives staff a snapshot of what’s going - on at any given moment, and it’s all stored for future reference.
 
-The system collects babybox data every five minutes, plus any events that happen in real time. This data gives staff a snapshot of what’s going on at any given moment, and it’s all stored for future reference.
-
-![Data Collection demo](/images/blog/babybox.mp4)
+<video width="100%" controls>
+  <source src="/images/blog/babybox.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 Users can dig deeper into this data with an interactive chart. The chart includes filters for things like time range, and staff can easily share the results by copying the URL—filters stay in place so the recipient sees exactly the same view. This makes collaboration smoother and faster.
 
-![Data Visualization demo](/images/blog/chart.mp4)
+<video width="100%" controls>
+  <source src="/images/blog/chart.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 ## Issue and Maintenance Tracking
+The Dashboard helps keep track of everything that needs fixing or checking. Staff can create issues, assign them to team members, and log comments to make sure nothing falls through the cracks. These issues can be grouped with planned maintenance tasks, making it easy to see what needs to be done during the next check-up.
 
-The staff can use Babybox Dashboard to quickly create issues to track them for future fixing or for statistics. Each issue can be assigned to a staff member; additionally issues can be assigned to a maintenance to track what needs to be done on the next maintenance of that babybox.
+<video width="100%" controls>
+  <source src="/images/blog/issues.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
-![Issue and maintenance demo](/images/blog/issues.mp4)
+The goal here was to make it fast and simple to manage everything, so staff can focus on actually solving problems, not wrestling with the tool itself.
 
+## Custom Notification System
+One of the useful features is the custom notification system. Users can set up their own notification templates—if a babybox hits a certain temperature, or the voltage drops below a threshold, the app automatically sends an alert. These notifications can go directly to email or show up in the app, making sure the right people know when action is needed.
 
-Maintenances are created and can be planned for any babybox, they are used for tracking when the next maintenance needs to be done and what issues need to be resolved. Similarly to issues, they can also be assigned to a staff member.
+<video width="100%" controls>
+  <source src="/images/blog/notifications.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
-Assigned issues and maintenances appear on the user's profile; any change made to them generates an automatic notification.
+## Babybox Metadata Tracking
+On top of monitoring, the app also tracks important details about each babybox. This includes everything from its physical location and GPS coordinates to the network setup and key contacts at the hospital. The location data even integrates with navigation tools to help the maintenance team find the box’s exact spot quickly.
 
-![Notification demo](/images/blog/notifications.mp4)
-
-Users can create custom notification templates to specify the conditions when they want to receive notifications. Users choose the variable (any temperature or voltage value) and a comparison, when the condition is met, the notification is generated.
-
-Each generated notification is displayed in the application and sent to the specified email addresses.
-
-## Babybox Metadata
-
-
-![Metadata demo](/images/blog/metadata.mp4)
+<video width="100%" controls>
+  <source src="/images/blog/metadata.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 ## Battery Analysis
-
 One of the more technical features is battery analysis. The system monitors how quickly the battery’s voltage drops during power outages, giving the team an idea of its health. This helps maintenance staff anticipate when a battery might need replacing before it actually dies.
 
-![Battery analysis demo](/images/blog/battery.mp4)
+<video width="100%" controls>
+  <source src="/images/blog/battery.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 ## User Management
-
 Since the Babybox Dashboard is an internal tool, it’s restricted to authorized personnel only. Admins can add or remove users as needed, and everyone needs to log in to access the system.
 
-![Login demo](/images/blog/login.mp4)
+<video width="100%" controls>
+  <source src="/images/blog/login.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
