@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Tag from "../components/Tag.astro";
 import Separator from "../components/Separator.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -17,14 +18,15 @@ console.log(pubDate, updatedDate, heroImage);
     <BaseHead title={title} description={description} />
   </head>
 
-  <body
-    class="-z-50 px-3 py-4 gradient bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-200"
-  >
+  <body class="-z-50 px-3 py-4 gradient">
     <div
-      class="text-stone-900 bg-stone-100 dark:text-stone-200 dark:bg-stone-950"
+      class="text-vintage-900 bg-vintage-100 dark:text-vintage-100 dark:bg-vintage-900"
     >
       <Header />
-      <main class="blog w-full lg:w-[50%] mx-auto pb-12">
+      <main
+        class="prose prose-lg dark:prose-invert mb-4 w-full px-2 lg:w-[50%] mx-auto pb-12"
+        style="--tw-prose-bullets: #856A2F"
+      >
         <article><slot /></article>
         <div class="my-24 w-full mx-auto flex justify-center">
           <Separator />
@@ -32,6 +34,7 @@ console.log(pubDate, updatedDate, heroImage);
         <em>Tags:</em>
         {tags ? tags.map((t) => <Tag text={t} />) : "No tags"}
       </main>
+      <Footer />
     </div>
   </body>
 </html>
