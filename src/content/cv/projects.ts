@@ -13,13 +13,23 @@ export const projects: Project[] = [
 		name: "Babybox Dashboard",
 		github: "https://github.com/zbyju/portfolio",
 		content: `<ul class="ml-5 list-disc">
-      <li>Microservice application for tracking babybox data</li>
-      <li>Issue and maintenance tracking</li>
-      <li>Data visualizations and aggregations from babyboxes</li>
-      <li>Keeping track of babybox metadata</li>
+			<li>Application designed to assist with babybox maintenance, providing data-driven insights and tools for efficient issue tracking and resolution.</li>
+			<li>Gathers data for visualization, aggregation and analysis</li>
+      <li>Notifications system with custom condition-based triggers</li>
+      <li>Tracks issues, maintenances, and other relevant metadata</li>
     </ul>`,
 		blog: "/blog/babybox-dashboard/",
-		keywords: ["Go", "TypeScript", "Python", "Next.js", "React", "Bun"],
+		keywords: [
+			"TypeScript",
+			"Go",
+			"Python",
+			"Next.js",
+			"React",
+			"Bun",
+			"MongoDB",
+			"InfluxDB",
+			"RabbitMQ",
+		],
 		size: "big",
 		show: true,
 	},
@@ -27,10 +37,12 @@ export const projects: Project[] = [
 		name: "Babybox Panel",
 		github: "https://github.com/zbyju/portfolio",
 		content: `<ul class="ml-5 list-disc">
-      <li>Application for real-time 24/7 babybox monitoring for hospitals</li>
-      <li>Interface for changing babybox parameters</li>
+			<li>On-site monitoring application for hospitals, designed for 24/7 use with no user input required after setup.</li>
+			<li>Displays babybox parameters (temperature, voltage, door status, connection, etc.) and live camera feed</li>
+      <li>Alerts hospital staff with visual and audio signals when the babybox activates or something goes wrong</li>
+      <li>Allows remote maintenance staff to adjust parameters (target temperatures, hysteresis, door settings)</li>
     </ul>`,
-		keywords: ["TypeScript", "Vue", "Node.js"],
+		keywords: ["TypeScript", "Vue", "Node.js", "Bash"],
 		size: "big",
 		show: true,
 	},
@@ -38,7 +50,8 @@ export const projects: Project[] = [
 		name: "Babybox Donors",
 		github: "https://github.com/zbyju/portfolio",
 		content: `<ul class="ml-5 list-disc">
-      <li>Application for tracking potential donors for the babybox project</li>
+			<li>Application for managing information about potential and current donors</li>
+			<li>Provides tools for efficient donor management and communication</li>
     </ul>`,
 		keywords: ["TypeScript", "Next.js", "React"],
 		size: "medium",
@@ -48,10 +61,10 @@ export const projects: Project[] = [
 		name: "My Portfolio",
 		github: "https://github.com/zbyju/portfolio",
 		content: `<ul class="ml-5 list-disc">
-      <li>Using Astro's island architecture to deliver a fast website</li>
+      <li>Using Astro's island architecture to deliver a fast website/blog</li>
     </ul>`,
-		keywords: ["TypeScript", "Astro"],
-		size: "medium",
+		keywords: ["TypeScript", "Astro", "Svelte"],
+		size: "small",
 		show: true,
 	},
 	{
@@ -61,7 +74,7 @@ export const projects: Project[] = [
       <li>Trying to write performant advent of code solutions</li>
     </ul>`,
 		keywords: ["Python", "Scala", "Go", "Rust"],
-		size: "medium",
+		size: "small",
 		show: true,
 	},
 	{
@@ -73,7 +86,7 @@ export const projects: Project[] = [
     </ul>`,
 		keywords: ["TypeScript", "MongoDB"],
 		size: "small",
-		show: true,
+		show: false,
 	},
 	{
 		name: "Quest for Nature",
@@ -92,7 +105,11 @@ Challenge</li>
 		name: "Redis Clone",
 		github: "https://github.com/zbyju/redis-go",
 		content: `<ul class="ml-5 list-disc">
-      <li>Implements some commands of the Redis protocol to concurrently handle incoming requests</li>
+			<li>Redis clone built using the hexagonal architecture, implementing key Redis commands and persistence.</li>
+			<li>Implements Redis commands</li>
+      <li>Supports persistence using Redis Database files</li>
+      <li>Reimplements the Redis protocol for communication</li>
+      <li>Follows the Redis specification</li>
     </ul>`,
 		keywords: ["TypeScript", "Node.js"],
 		size: "medium",
@@ -102,18 +119,23 @@ Challenge</li>
 		name: "HTTP Server",
 		github: "https://github.com/zbyju/http-server-go",
 		content: `<ul class="ml-5 list-disc">
-      <li>Supports concurrently handling requests and sending responses</li>
-      <li>Is able to do header compressions using Gzip</li>
+			<li>Custom HTTP server built to handle concurrent requests efficiently.</li>
+			<li>Handles concurrent requests</li>
+      <li>Supports working with headers and body of the request</li>
+      <li>Supports sending files</li>
+      <li>Supports gzip compression based on the client's compression header</li>
     </ul>`,
 		keywords: ["Go"],
-		size: "small",
+		size: "medium",
 		show: true,
 	},
 	{
 		name: "Git Clone",
 		github: "https://github.com/zbyju/git-go",
 		content: `<ul class="ml-5 list-disc">
-      <li>Implements Git's plumbing commands to store and read blob, tree and commit objects</li>
+			<li>Developed a Git clone implementing key plumbing commands</li>
+			<li>Follows Git specs for storing blob, tree, and commit objects</li>
+			<li>Replicates Git's method of storing information in the .git folder</li>
     </ul>`,
 		keywords: ["Go"],
 		size: "small",
@@ -128,17 +150,18 @@ Challenge</li>
     </ul>`,
 		keywords: ["Scala"],
 		size: "medium",
-		show: true,
+		show: false,
 	},
 	{
 		name: "BoxJump",
 		context: "School Project",
 		github: "https://github.com/zbyju/boxjump",
 		content: `<ul class="ml-5 list-disc">
-      <li>Jump King inspired game that challenges the player to perfectly jump through the level</li>
-      <li>It implements gravity, collisions, custom jump mechanic, different objects to interact with and more</li>
+			<li>Developed a PixiJS and Matter.js game using ECS architecture</li>
+			<li>Heavily inspired by the game Jump King</li>
+			<li>Features physics-based gameplay and challenging jumping mechanics</li>
     </ul>`,
-		keywords: ["TypeScript"],
+		keywords: ["TypeScript", "Pixi.js", "Matter.js"],
 		size: "medium",
 		show: true,
 	},

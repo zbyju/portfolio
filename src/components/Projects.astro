@@ -1,5 +1,5 @@
 ---
-import { Github } from "lucide-astro";
+import { BookHeart, Github } from "lucide-astro";
 import type { Project } from "../content/cv/projects";
 
 interface Props {
@@ -8,11 +8,18 @@ interface Props {
 
 const { projects } = Astro.props;
 const color = (size: "big" | "medium" | "small") => {
-  const color = size === "big" ? "red" : size === "medium" ? "yellow" : "lime";
-  return `bg-${color}-50 dark:bg-stone-920 border-l-${color}-400 border-r-${color}-300 border-t-${color}-300 border-b-${color}-300 dark:border-${color}-900`;
+  const color =
+    size === "big" ? "mygreen" : size === "medium" ? "myteal" : "myblue";
+  const border =
+    size === "big"
+      ? "border-l-[12px]"
+      : size === "medium"
+        ? "border-l-[8px]"
+        : "border-l-[4px]";
+  return `bg-white dark:bg-black dark:border-${color}-600 border-${color}-400 ${border}`;
 };
 const width = (_: "big" | "medium" | "small") => {
-  return "400";
+  return "410";
 };
 ---
 
@@ -28,31 +35,36 @@ const width = (_: "big" | "medium" | "small") => {
       .filter((p) => p.show)
       .map((p) => (
         <div
-          class={`warp-box masonry-item w-full overflow-hidden rounded-xl m-2 border-l-[3px] border-t border-b border-r transition duration-300 ${color(p.size)}`}
+          class={`warp-box masonry-item w-full overflow-hidden rounded-xl my-2 md:mx-2 border-t border-b border-r transition duration-300 ${color(p.size)}`}
           style={`max-width: ${width(p.size)}px`}
         >
-          <a href={p.blog}>
-            <div class={`px-6 py-4`}>
-              <div class="flex flex-wrap flex-row items-center gap-x-2">
-                <h3 class="font-semibold text-3xl">{p.name}</h3>
+          <div class={`px-6 py-4`}>
+            <div class="flex flex-wrap flex-row items-center gap-x-2">
+              <h3 class="font-semibold text-3xl">{p.name}</h3>
+              <div class="flex flex-row gap-1">
                 {p.github && (
                   <a href={p.github}>
                     <Github />
                   </a>
                 )}
-              </div>
-              {p.context && <em class="text-lg leading-6">{p.context}</em>}
-              <div class="mt-2 flex-grow" set:html={p.content} />
-              <div class="mt-2">
-                {p.keywords.map((keyword, index) => (
-                  <>
-                    <span>{keyword}</span>
-                    {index !== p.keywords.length - 1 && <span> · </span>}
-                  </>
-                ))}
+                {p.blog && (
+                  <a href={p.blog}>
+                    <BookHeart />
+                  </a>
+                )}
               </div>
             </div>
-          </a>
+            {p.context && <em class="text-lg leading-6">{p.context}</em>}
+            <div class="mt-2 flex-grow" set:html={p.content} />
+            <div class="mt-2">
+              {p.keywords.map((keyword, index) => (
+                <>
+                  <span>{keyword}</span>
+                  {index !== p.keywords.length - 1 && <span> · </span>}
+                </>
+              ))}
+            </div>
+          </div>
         </div>
       ))
   }

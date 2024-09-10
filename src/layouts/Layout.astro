@@ -11,24 +11,22 @@ import Footer from "../components/Footer.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body
-    class="-z-50 px-3 py-4 gradient bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-200"
-  >
+  <body class="-z-50 px-3 py-4 bg-vintage-600">
     <div class="rounded-lg">
       <main>
         <header
-          class="-z-50 min-h-[100vh] overflow-hidden bg-primary-100 dark:bg-stone-900"
+          class="-z-50 min-h-[100vh] overflow-hidden bg-vintage-200 dark:bg-vintage-700 dark:text-vintage-200"
         >
           <StickyHeader />
           <Header />
           <slot name="hero" />
         </header>
         <div
-          class="bg-stone-50 dark:bg-stone-950 text-stone-950 dark:text-stone-200"
+          class="bg-vintage-50 dark:bg-vintage-900 text-vintage-900 dark:text-vintage-100"
         >
           <slot />
+          <Footer />
         </div>
-        <Footer />
       </main>
     </div>
   </body>

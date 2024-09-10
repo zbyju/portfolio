@@ -1,5 +1,5 @@
 ---
-title: 'Babybox Dashboard Project'
+title: 'Babybox Dashboard'
 description: 'The description of what the babybox dashboard project is and what the application can do.'
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-3.jpg'
@@ -30,20 +30,30 @@ I started developing this application as part of my master's thesis as a rewrite
 
 Babyboxes send their data snapshots every 5 minutes and events whenever they occur and stores them for further use. The staff can see the latest snapshots and events to get the idea of the current situation.
 
-They can then further explore the data and get an in-depth understanding in a comprehensive chart with statistics for the time window they selected. The selected filters are stored as part of the URL to allow easy sharing of information between team members and quick cycling through babyboxes with the same parameters.
+*I also made a Babybox Monitoring Application that is deployed in hospitals for the hospital staff to monitor the babybox on-site.*
+
+## Data Collection and Visualization
+
+The system collects babybox data every five minutes, plus any events that happen in real time. This data gives staff a snapshot of what’s going on at any given moment, and it’s all stored for future reference.
+
+![Data Collection demo](/images/blog/babybox.mp4)
+
+Users can dig deeper into this data with an interactive chart. The chart includes filters for things like time range, and staff can easily share the results by copying the URL—filters stay in place so the recipient sees exactly the same view. This makes collaboration smoother and faster.
+
+![Data Visualization demo](/images/blog/chart.mp4)
 
 ## Issue and Maintenance Tracking
 
 The staff can use Babybox Dashboard to quickly create issues to track them for future fixing or for statistics. Each issue can be assigned to a staff member; additionally issues can be assigned to a maintenance to track what needs to be done on the next maintenance of that babybox.
 
-Emphasis was put on ease and efficiency of use with many quality of life features to quickly create and edit issues and filter them. Staff members can collaborate or take notes for themselves on the issues using comments.
+![Issue and maintenance demo](/images/blog/issues.mp4)
 
 
 Maintenances are created and can be planned for any babybox, they are used for tracking when the next maintenance needs to be done and what issues need to be resolved. Similarly to issues, they can also be assigned to a staff member.
 
 Assigned issues and maintenances appear on the user's profile; any change made to them generates an automatic notification.
 
-## Notification System
+![Notification demo](/images/blog/notifications.mp4)
 
 Users can create custom notification templates to specify the conditions when they want to receive notifications. Users choose the variable (any temperature or voltage value) and a comparison, when the condition is met, the notification is generated.
 
@@ -52,7 +62,16 @@ Each generated notification is displayed in the application and sent to the spec
 ## Babybox Metadata
 
 
+![Metadata demo](/images/blog/metadata.mp4)
 
 ## Battery Analysis
 
+One of the more technical features is battery analysis. The system monitors how quickly the battery’s voltage drops during power outages, giving the team an idea of its health. This helps maintenance staff anticipate when a battery might need replacing before it actually dies.
+
+![Battery analysis demo](/images/blog/battery.mp4)
+
 ## User Management
+
+Since the Babybox Dashboard is an internal tool, it’s restricted to authorized personnel only. Admins can add or remove users as needed, and everyone needs to log in to access the system.
+
+![Login demo](/images/blog/login.mp4)
