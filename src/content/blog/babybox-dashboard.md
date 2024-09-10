@@ -2,7 +2,7 @@
 title: 'Babybox Dashboard'
 description: 'The description of what the babybox dashboard project is and what the application can do.'
 pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/images/blog/babybox-dashboard.webp'
 tags: ["Project"]
 ---
 

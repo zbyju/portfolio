@@ -2,7 +2,7 @@
 title: 'Welcome to my Journey'
 description: 'This is the first blog post on my website. Welcome!'
 pubDate: 'Jul 25 2024'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/images/generic-blog1.jpeg'
 tags:
 - Life
 ---
