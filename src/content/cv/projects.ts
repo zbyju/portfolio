@@ -116,6 +116,18 @@ Challenge</li>
 		show: true,
 	},
 	{
+		name: "Kafka Clone",
+		github: "https://github.com/zbyju/kafka-python",
+		content: `<ul class="ml-5 list-disc">
+			<li>Redis clone following the specficiation of Kafka.</li>
+			<li>Implements the Kafka protocol for communication</li>
+			<li>Supports basic commands for interaction and handling mulitple clients</li>
+    </ul>`,
+		keywords: ["Python"],
+		size: "medium",
+		show: true,
+	},
+	{
 		name: "HTTP Server",
 		github: "https://github.com/zbyju/http-server-go",
 		content: `<ul class="ml-5 list-disc">
@@ -146,11 +158,12 @@ Challenge</li>
 		github: "https://github.com/zbyju/chesso",
 		content: `<ul class="ml-5 list-disc">
       <li>Implementation of the game of chess in Scala</li>
-      <li>Support creating a game and moving pieces</li>
+      <li>Supports creating a game and moving pieces</li>
+      <li>Supports loading a board state using FEN</li>
     </ul>`,
 		keywords: ["Scala"],
 		size: "medium",
-		show: false,
+		show: true,
 	},
 	{
 		name: "BoxJump",
