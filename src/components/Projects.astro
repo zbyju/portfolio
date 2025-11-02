@@ -3,43 +3,43 @@ import { BookHeart, Github } from "lucide-astro";
 import type { Project } from "../content/cv/projects";
 
 interface Props {
-  projects: Project[];
+	projects: Project[];
 }
 
 const { projects } = Astro.props;
 const color = (size: "big" | "medium" | "small") => {
-  const color =
-    size === "big" ? "mygreen" : size === "medium" ? "myteal" : "myblue";
-  const border =
-    size === "big"
-      ? "border-l-[12px]"
-      : size === "medium"
-        ? "border-l-[8px]"
-        : "border-l-[4px]";
-  return `bg-white dark:bg-black dark:border-${color}-600 border-${color}-400 ${border}`;
+	const color =
+		size === "big" ? "mygreen" : size === "medium" ? "myteal" : "myblue";
+	const border =
+		size === "big"
+			? "border-l-[12px] hover:border-l-[16px]"
+			: size === "medium"
+				? "border-l-[8px] hover:border-l-[12px]"
+				: "border-l-[4px] hover:border-l-[8px]";
+	return `bg-${color}-400 dark:bg-${color}-600 dark:border-${color}-600 border-${color}-400 ${border} transition-all duration-300`;
 };
 const width = (_: "big" | "medium" | "small") => {
-  return "410";
+	return "410";
 };
 ---
 
 <div class="masonry-grid" data-masonry='{ "itemSelector": ".masonry-item" }'>
   {
     projects
-      .sort((a, b) => {
+      .sort((a: Project, b: Project) => {
         const sizes = ["big", "medium", "small"];
         const ai = sizes.findIndex((x) => x === a.size) ?? 9_999_999_998;
         const bi = sizes.findIndex((x) => x === b.size) ?? 9_999_999_999;
         return ai - bi;
       })
-      .filter((p) => p.show)
-      .map((p) => (
+      .filter((p: Project) => p.show)
+      .map((p: Project) => (
         <div
-          class={`warp-box masonry-item w-full overflow-hidden rounded-xl my-2 md:mx-2 border-t border-b border-r transition duration-300 ${color(p.size)}`}
+          class={`masonry-item w-full overflow-hidden rounded-xl my-2 md:mx-2 border-t border-b border-r transition duration-300 ${color(p.size)} overflow-hidden`}
           style={`max-width: ${width(p.size)}px`}
         >
-          <div class={`px-6 py-4`}>
-            <div class="flex flex-wrap flex-row items-center gap-x-2">
+          <div class={`px-[24px] hover:pl-[24px] hover:pr-[20px] rounded-xl border-separate py-4 transition-all duration-300 shadow-sm bg-white dark:bg-vintage-900`}>
+            <div class="flex flex-wrap flex-row items-center justify-between gap-x-2">
               <h3 class="font-semibold text-3xl">{p.name}</h3>
               <div class="flex flex-row gap-1">
                 {p.github && (
