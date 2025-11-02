@@ -1,24 +1,24 @@
 ---
 import { displayDate, displayDuration } from "../utils/display/dates";
 type Work = {
-  job_title: string;
-  country: string;
-  company: string;
-  workload: string;
-  start: Date;
-  end: Date | string;
-  content: string;
-  keywords: string[];
+	job_title: string;
+	country: string;
+	company: string;
+	workload: string;
+	start: Date;
+	end: Date | string;
+	content: string;
+	keywords: string[];
 };
 interface Props {
-  works: Work[];
+	works: Work[];
 }
 const { works } = Astro.props;
 ---
 
 <div class="mt-4 overflow-hidden">
   {
-    works.map((w) => (
+    works.map((w: Work) => (
       <div class="">
         <div class="w-[300px] max-w-[95%] flex flex-row">
           <div class="flex flex-col gap-y-1 bg-vintage-900 dark:bg-vintage-200 h-[35px] hover:h-[57px] transition-all duration-300 text-zinc-50 dark:text-black overflow-y-hidden w-fit px-4 py-[6px] rounded-full text-center">
